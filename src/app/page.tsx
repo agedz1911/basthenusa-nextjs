@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <CustomContainer>
       <h1>Tes</h1>
-      {/* <p className={cn("text-center ", courgette.className)}>Nusa Kembara</p> */}
+      <p className={cn("text-center fw-bold ", courgette.className)}>Nusa Kembara</p>
     </CustomContainer>
   );
 }
