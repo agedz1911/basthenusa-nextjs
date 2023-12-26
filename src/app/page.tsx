@@ -1,14 +1,18 @@
-import CustomContainer from "@/components/CustomContainer";
-import { cn } from "@/lib/utils";
-import { Courgette } from "next/font/google";
-
-const courgette = Courgette({ subsets: ["latin"], weight: "400" });
+import Divider from "@/components/Divider";
+import ToTopButton from "@/components/ToTopButton";
+import Features from "@/components/features/Features";
+import Footer from "@/components/footer/Footer";
+import Hero from "@/components/hero/Hero";
 
 export default function Home() {
   return (
-    <CustomContainer>
-      <h1>Tes</h1>
-      <p className={cn("text-center fw-bold ", courgette.className)}>Nusa Kembara</p>
-    </CustomContainer>
+    <div className="p-0">
+      <Hero />
+      <Divider />
+      <Features />
+
+      <Footer />
+      <ToTopButton />
+    </div>
   );
 }
