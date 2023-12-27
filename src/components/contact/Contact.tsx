@@ -1,10 +1,6 @@
 import { Mail, MapPinned, Phone } from "lucide-react";
 import Link from "next/link";
 import CustomContainer from "../CustomContainer";
-import { Button } from "../ui/button";
-import { Card, CardContent, CardFooter } from "../ui/card";
-import { Input } from "../ui/input";
-import { Textarea } from "../ui/textarea";
 import SendMessage from "./SendMessage";
 
 const Contact = () => {

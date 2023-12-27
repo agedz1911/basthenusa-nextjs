@@ -41,7 +41,7 @@ const Features = () => {
             ))}
           </div>
         </div>
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap md:mt-10 mt-5">
           <div className="md:w-1/2 w-full px-5 mb-4">
             <h1 className="text-2xl font-bold text-sky-800 mb-3">The Story</h1>
             <h1 className="text-muted-foreground font-semibold text-lg mb-3">
