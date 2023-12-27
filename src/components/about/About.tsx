@@ -3,7 +3,7 @@ import { Compass } from "lucide-react";
 
 const About = () => {
   return (
-    <section id="about" className="h-screen  bg-zinc-100">
+    <section id="about" className="h-screen">
       <div className="py-20">
         <h1>About</h1>
 

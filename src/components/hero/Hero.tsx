@@ -11,7 +11,7 @@ const courgette = Courgette({ subsets: ["latin"], weight: "400" });
 const Hero = () => {
   return (
     <section className="w-full pb-20">
-      <div className="h-screen w-full absolute top-0 left-0 -z-10">
+      <div className="h-[860px] w-full absolute top-0 left-0 -z-10">
         <Image
           src="/images/backgrond.jpg"
           fill
@@ -20,7 +20,7 @@ const Hero = () => {
           className="brightness-[90%] object-cover"
         />
       </div>
-      <div className="h-screen w-full bg-gradient-to-t from-teal-900 via-sky-600/50 to-sky-900 -z-10 absolute top-0 left-0"></div>
+      <div className="h-[860px] w-full bg-gradient-to-t from-teal-900 via-sky-600/50 to-sky-900 -z-10 absolute top-0 left-0"></div>
       <CustomContainer className="lg:pt-10">
         <div className="flex flex-col lg:flex-row items-center justify-between lg:py-6 lg:mt-14 mt-5 py-2 gap-5">
           <div className="lg:w-1/2 w-full space-y-5 lg:space-y-8 ">

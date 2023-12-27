@@ -13,21 +13,21 @@ const Features = () => {
           className="pt-20 flex flex-col items-center gap-10 lg:gap-14"
         >
           <h1 className="text-3xl text-center lg:text-4xl font-semibold underline">
-            Boat Features
+            About
           </h1>
           <div className="w-full p-2 flex flex-wrap pb-5">
             {BFeatures.map((feature) => (
               <div
                 key={feature.id}
-                className="w-full md:w-1/2 lg:w-1/2 py-5 px-2"
+                className="w-full md:w-1/2 lg:w-1/2 py-5 px-2 "
               >
-                <div className="flex items-start gap-2">
+                <div className="flex items-start gap-2 ">
                   {feature.icon}
                   <div className="flex flex-col w-full ">
                     <h1 className="text-lg font-semibold md:text-xl">
                       {feature.label}{" "}
                     </h1>
-                    <div className="lg:w-3/4 md:pr-4 lg:pr-0">
+                    <div className="lg:pr-5 md:pr-4">
                       {feature.items.map((i, index) => (
                         <span
                           className="text-sm text-muted-foreground"
@@ -43,7 +43,7 @@ const Features = () => {
         </div>
         <div className="flex flex-wrap">
           <div className="md:w-1/2 w-full px-5 mb-4">
-            <h1 className="text-xl font-bold text-sky-800 mb-3">The Story</h1>
+            <h1 className="text-2xl font-bold text-sky-800 mb-3">The Story</h1>
             <h1 className="text-muted-foreground font-semibold text-lg mb-3">
               Nusa Kembara
             </h1>
