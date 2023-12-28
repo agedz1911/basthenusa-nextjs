@@ -10,7 +10,7 @@ const CardExperience = () => {
       {ExperienceList.map((item, i) => (
         <div
           key={i}
-          className="group hover:cursor-pointer block bg-white rounded-lg overflow-hidden"
+          className="group hover:cursor-pointer block bg-background rounded-lg overflow-hidden"
         >
           <div className="relative aspect-video py-0 px-0  ">
             <Image

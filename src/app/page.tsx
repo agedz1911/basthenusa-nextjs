@@ -5,6 +5,7 @@ import Experience from "@/components/experience/Experience";
 import Features from "@/components/features/Features";
 import Footer from "@/components/footer/Footer";
 import Hero from "@/components/hero/Hero";
+import ParallaxVideo from "@/components/parallaxVideo/ParallaxVideo";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { Courgette } from "next/font/google";
@@ -18,6 +19,7 @@ export default function Home() {
       <Hero />
       <Divider />
       <Features />
+      <ParallaxVideo />
       <Experience />
       <div className="bg-gradient-to-t from-amber-50/50 to-transparent">
         <div className="relative bg-primary p-7 lg:w-2/3  w-full mx-auto">

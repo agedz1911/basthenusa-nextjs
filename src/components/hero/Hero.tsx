@@ -10,7 +10,7 @@ const courgette = Courgette({ subsets: ["latin"], weight: "400" });
 
 const Hero = () => {
   return (
-    <section className="w-full pb-20">
+    <section className="w-full pb-0">
       <div className="h-[860px] w-full absolute top-0 left-0 -z-10">
         <Image
           src="/images/backgrond.jpg"
@@ -21,12 +21,12 @@ const Hero = () => {
         />
       </div>
       <div className="h-[860px] w-full bg-gradient-to-t from-teal-900 via-sky-600/50 to-sky-900 -z-10 absolute top-0 left-0"></div>
-      <CustomContainer className="lg:pt-10">
+      <CustomContainer className="lg:pt-5">
         <div className="flex flex-col lg:flex-row items-center justify-between lg:py-6 lg:mt-14 mt-5 py-2 gap-5">
           <div className="lg:w-1/2 w-full space-y-5 lg:space-y-8 ">
             <h1
               className={cn(
-                "lg:text-6xl md:text-5xl text-white fw-bold ",
+                "lg:text-7xl md:text-5xl text-white fw-bold ",
                 courgette.className
               )}
             >
@@ -34,18 +34,16 @@ const Hero = () => {
             </h1>
             <h1
               className={cn(
-                "text-white text-xl fw-bold flex",
+                "text-white lg:text-2xl text-xl fw-bold flex",
                 courgette.className
               )}
             >
-              <Compass className="mr-2 text-sky-950" /> Discover The True
+              <Compass className="mr-2  text-sky-950" /> Discover The True
               Paradise
             </h1>
             <p className="text-justify text-sm text-muted px-1">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita,
-              optio magni eligendi, sequi fuga blanditiis ea ducimus quas
-              incidunt, voluptatem neque ipsum. Libero fugit rerum voluptatum
-              minima, maxime explicabo aperiam?
+              We offer a unique and authentic experience for those looking to
+              explore the stunning Indonesian archipelago.
             </p>
             <div className="space-x-5 text-center lg:text-start">
               <ButtonNs label="Read More" desc="Nusa Kembara" icon={<Info />} />
