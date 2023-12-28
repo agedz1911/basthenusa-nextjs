@@ -1,9 +1,9 @@
 export const Links = [
   { name: "Home", href: "/" },
   { name: "About", href: "/#about" },
-  { name: "Experience", href: "/#experience" },
   { name: "Destination", href: "/#destination" },
   { name: "Reservation", href: "/#reservation" },
+  { name: "Experience", href: "/#experience" },
   { name: "contact", href: "/#contact" },
 ];
 
