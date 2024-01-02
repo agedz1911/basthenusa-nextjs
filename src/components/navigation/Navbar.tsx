@@ -30,7 +30,7 @@ const Navbar = () => {
   return (
     <div
       className={`py-5 md:px-0 lg:px-0 px-2 sticky top-0 ${
-        scroll ? "bg-background shadow-sm z-10" : "bg-transparent text-white"
+        scroll ? "bg-slate-50 shadow-sm z-10" : "bg-transparent text-white"
       }`}
     >
       <div className="flex flex-row items-center justify-between md:px-10 lg:justify-around">

@@ -4,8 +4,8 @@ import Contact from "@/components/contact/Contact";
 import Destination from "@/components/destination/Destination";
 import Experience from "@/components/experience/Experience";
 import Features from "@/components/features/Features";
-import Footer from "@/components/footer/Footer";
 import Hero from "@/components/hero/Hero";
+import Navbar from "@/components/navigation/Navbar";
 import ParallaxVideo from "@/components/parallaxVideo/ParallaxVideo";
 import Reservation from "@/components/reservation/Reservation";
 import { Separator } from "@/components/ui/separator";
@@ -18,6 +18,7 @@ const courgette = Courgette({ subsets: ["latin"], weight: "400" });
 export default function Home() {
   return (
     <div className="p-0">
+      <Navbar />
       <Hero />
       <Divider />
       <Features />
@@ -55,7 +56,7 @@ export default function Home() {
         </div>
       </div>
       <Contact />
-      <Footer />
+
       <ToTopButton />
     </div>
   );

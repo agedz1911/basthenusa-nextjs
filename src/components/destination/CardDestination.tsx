@@ -1,8 +1,8 @@
-import Image from "next/image";
-import React from "react";
-import { Button } from "../ui/button";
-import { Calendar, Info, Map, MapPin, Pin } from "lucide-react";
 import { DestinationList } from "@/config/DestinationList";
+import { Info, MapPin } from "lucide-react";
+import Image from "next/image";
+import { Button } from "../ui/button";
+import ButtonDetail from "./ButtonDetail";
 
 const CardDestination = () => {
   return (
@@ -20,15 +20,18 @@ const CardDestination = () => {
               className="object-cover rounded"
             />
           </div>
-          <div className="flex flex-col items-start gap-4 lg:w-3/5 px-3">
-            <h1 className="text-lg font-semibold flex gap-2">
+          <div className="flex flex-col items-start group gap-4 lg:w-3/5 px-3">
+            <h1 className="text-lg font-semibold flex gap-2 group-hover:text-secondary">
               <MapPin className="" /> {item.title}
             </h1>
             <p className="line-clamp-3 text-sm text-justify">{item.desc}</p>
             <p className="text-sm text-muted-foreground">{item.periode}</p>
-            <Button size={"sm"} variant={"default"}>
-              <Info className="size-4 mr-3" /> Details
-            </Button>
+            <ButtonDetail
+              title={item.title}
+              desc={item.desc}
+              imgSrc={item.imgSrc}
+              periode={item.periode}
+            />
           </div>
         </div>
       ))}
