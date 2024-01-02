@@ -14,7 +14,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "../ui/sheet";
-
+import AuthButton from "../auth/AuthButton";
 
 const MobileMenu = () => {
   const pathName = usePathname();
@@ -28,7 +28,13 @@ const MobileMenu = () => {
       <SheetContent side={"left"}>
         <SheetHeader>
           <SheetTitle>
-            <Image src="/logo.png" width={50} height={50} className="w-12 h-auto" alt="logo" />
+            <Image
+              src="/logo.png"
+              width={50}
+              height={50}
+              className="w-12 h-auto"
+              alt="logo"
+            />
           </SheetTitle>
         </SheetHeader>
         <Separator className="my-4" />
@@ -61,12 +67,7 @@ const MobileMenu = () => {
         </div>
         <Separator className="my-4" />
         <div className="w-full mt-3 gap-2 flex flex-col">
-          <Button className="text-sm">
-            <UserPlus className="size-4 mr-2" /> Sign up
-          </Button>
-          <Button className="text-sm">
-            <LogIn className="size-4 mr-2" /> Sign in
-          </Button>
+          <AuthButton />
         </div>
       </SheetContent>
     </Sheet>

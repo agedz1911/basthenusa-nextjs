@@ -3,17 +3,17 @@
 import { LogIn, UserPlus } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import MobileMenu from "./MobileMenu";
 import { Links } from "@/config";
-
-
+import AuthButton from "../auth/AuthButton";
 
 const Navbar = () => {
   const [scroll, setScroll] = useState(false);
   const pathName = usePathname();
+  const router = useRouter();
 
   const handleScroll = () => {
     if (window.scrollY >= 100) {
@@ -71,12 +71,7 @@ const Navbar = () => {
                 </div>
               ))}
             </ul>
-            <Button className="text-sm">
-              <UserPlus className="size-4 mr-2" /> Sign up
-            </Button>
-            <Button className="text-sm">
-              <LogIn className="size-4 mr-2" /> Sign in
-            </Button>
+            <AuthButton />
           </div>
           <MobileMenu />
         </div>
