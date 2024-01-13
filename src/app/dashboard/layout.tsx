@@ -1,3 +1,4 @@
+import { signOut } from "@/auth";
 import CustomContainer from "@/components/CustomContainer";
 import { Button } from "@/components/ui/button";
 import { Home, ListTodo, LogOut, User } from "lucide-react";
@@ -56,11 +57,17 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
                 <User className="mr-2 h-4 w-4" /> Profile
               </Button>
             </Link>
-            <Link href="#">
-              <Button variant={"link"}>
-                <LogOut className="mr-2 h-4 w-4" /> Logout
+            <form
+              action={async () => {
+                "use server";
+                await signOut();
+              }}
+            >
+              <Button className="text-sm w-full" variant={"link"}>
+                <LogOut className="size-4 mr-2" />
+                Log out
               </Button>
-            </Link>
+            </form>
           </div>
         </div>
         <div className="w-full  mx-2 my-3">{children}</div>

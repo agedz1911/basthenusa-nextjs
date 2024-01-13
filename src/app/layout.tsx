@@ -1,9 +1,9 @@
+import Footer from "@/components/footer/Footer";
+import { Toaster } from "react-hot-toast";
+import { cn } from "@/lib/utils";
+import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "@/styles/globals.css";
-import { cn } from "@/lib/utils";
-import IconURL from "@/app/favicon.ico";
-import Footer from "@/components/footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +24,7 @@ export default function RootLayout({
           <div className="flex-grow flex-1">{children}</div>
           <Footer />
         </main>
+        <Toaster />
       </body>
     </html>
   );

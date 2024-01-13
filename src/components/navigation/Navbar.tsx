@@ -10,8 +10,8 @@ const Navbar = () => {
       <div className="flex flex-row items-center justify-between md:px-10 lg:justify-around">
         <ButtonLogo />
         <NavMenu />
-        <div className="flex items-center">
-          <UserNav />
+        <div className="flex items-center space-x-2">
+          <UserNav className="lg:flex hidden lg:flex-row space-x-2 lg:items-center" />
           <MobileMenu />
         </div>
       </div>

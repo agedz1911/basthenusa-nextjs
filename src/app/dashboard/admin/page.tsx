@@ -1,9 +1,16 @@
-import React from 'react'
+import { auth } from "@/auth";
+import { redirect } from "next/navigation";
 
-const page = () => {
+const page = async () => {
+  const session = await auth();
+  if (session?.user.role !== "ADMIN") return redirect("/");
+
   return (
-    <div>Admin</div>
-  )
-}
+    <div>
+      Admin
+      {JSON.stringify(session)}
+    </div>
+  );
+};
 
-export default page
+export default page;
