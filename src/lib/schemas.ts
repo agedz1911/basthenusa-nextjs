@@ -20,3 +20,15 @@ export const LoginSchema = z.object({
     message: "password is required",
   }),
 });
+
+export const UpdatePasswordSchema = z.object({
+  currentPassword: z.string().min(1, {
+    message: "password is required",
+  }),
+  newPassword: z.string().min(1, {
+    message: "password is required",
+  }),
+  confirmPassword: z.string().min(1, {
+    message: "password is required",
+  }),
+});

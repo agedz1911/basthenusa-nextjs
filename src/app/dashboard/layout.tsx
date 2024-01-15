@@ -1,4 +1,4 @@
-import { signOut } from "@/auth";
+import { auth, signOut } from "@/auth";
 import CustomContainer from "@/components/CustomContainer";
 import { Button } from "@/components/ui/button";
 import { Home, ListTodo, LogOut, User } from "lucide-react";
@@ -6,7 +6,14 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
+const DashboardLayout = async ({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: { userId: string };
+}) => {
+  const session = await auth();
   return (
     <div className="md:px-10 px-2">
       <div className="flex items-center py-3 justify-between sticky bg-background border-b top-0">
@@ -27,32 +34,48 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         <div className="md:w-1/3 w-full lg:w-1/4 flex-col flex px-1">
           <div className="w-full rounded-md border shadow my-2 ">
             <div className="aspect-video rounded">
-              <Image
-                src="/images/destination/alor.jpg"
-                alt="profile"
-                width={200}
-                height={100}
-                className="object-cover rounded-md h-full w-full"
-              />
+              {session?.user.image !== null ? (
+                <Image
+                  width={200}
+                  height={100}
+                  className="object-cover rounded-md h-full w-full"
+                  src={session?.user.image!}
+                  alt={session?.user.name ?? ""}
+                />
+              ) : (
+                <Image
+                  src={`https://ui-avatars.com/api/?name=${session.user.name}`}
+                  alt={session.user.name ?? ""}
+                  width={200}
+                  height={100}
+                  className="object-cover rounded-md h-full w-full"
+                />
+              )}
             </div>
             <div className="px-2 py-4 ">
-              <h1 className="text-sm font-semibold">Name</h1>
-              <p className="text-xs">Email</p>
+              <h1 className="text-sm font-semibold">{session?.user.name}</h1>
+              <p className="text-xs">{session?.user.email}</p>
             </div>
           </div>
           <div className="border my-2 rounded-md shadow flex-col flex">
-            <Link href="/dashboard/1">
+            <Link
+              href={`/dashboard/${
+                session?.user.role === "ADMIN" ? "admin" : "user"
+              }`}
+            >
               <Button variant={"link"}>
                 <Home className="mr-2 h-4 w-4" /> Home
               </Button>
             </Link>
-            <Link href={`1/mybooking`}>
+            <Link
+              href={`/dashboard/user/mybooking`}
+            >
               <Button variant={"link"}>
                 <ListTodo className="mr-2 h-4 w-4" />
                 My Booking
               </Button>
             </Link>
-            <Link href="#">
+            <Link href={`/dashboard/user/myprofile`}>
               <Button variant={"link"}>
                 <User className="mr-2 h-4 w-4" /> Profile
               </Button>

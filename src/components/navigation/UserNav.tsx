@@ -4,9 +4,16 @@ import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "../ui/tooltip";
 
 const UserNav = async ({ className }: { className: React.ReactNode }) => {
   const session = await auth();
+
   if (!session?.user)
     return (
       <div className={`flex-col ${className}`}>
@@ -32,25 +39,44 @@ const UserNav = async ({ className }: { className: React.ReactNode }) => {
 
   return (
     <div className={`flex-col  ${className}`}>
-      <div className="flex items-center space-x-2">
-        <Avatar className="w-10 h-10 ">
-          {session.user.image && (
-            <AvatarImage
-              src={session.user.image}
-              alt={session.user.name ?? ""}
-            />
-          )}
-          <AvatarFallback>{session.user.email}</AvatarFallback>
-        </Avatar>
-        <div className="flex flex-col space-y-1 lg:hidden">
-          <p className="text-sm font-medium leading-none">
-            {session.user.name}
-          </p>
-          <p className="text-xs leading-none text-muted-foreground">
-            {session.user.email}
-          </p>
+      <Link
+        href={`/dashboard/${session.user.role === "ADMIN" ? "admin" : "user"}`}
+      >
+        <div className="flex items-center space-x-2">
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Avatar className="w-10 h-10 ">
+                  {session.user.image !== null ? (
+                    <AvatarImage
+                      src={session.user.image}
+                      alt={session.user.name ?? ""}
+                    />
+                  ) : (
+                    <AvatarImage
+                      src={`https://ui-avatars.com/api/?name=${session.user.name}`}
+                      alt={session.user.name ?? ""}
+                    />
+                  )}
+                  <AvatarFallback>{session.user.email}</AvatarFallback>
+                </Avatar>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p className="text-sm text-muted-foreground">Go to Dashboard</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+
+          <div className="flex flex-col space-y-1 lg:hidden">
+            <p className="text-sm font-medium leading-none">
+              {session.user.name}
+            </p>
+            <p className="text-xs leading-none text-muted-foreground">
+              {session.user.email}
+            </p>
+          </div>
         </div>
-      </div>
+      </Link>
       <form
         action={async () => {
           "use server";
