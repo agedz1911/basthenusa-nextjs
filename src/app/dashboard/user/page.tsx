@@ -8,14 +8,7 @@ const page = async () => {
     <div>
       <p>{session?.user.role}</p>
       <p>{session?.user.name}</p>
-      <Tabs defaultValue="account">
-        <TabsList>
-          <TabsTrigger value="account">Update Profile</TabsTrigger>
-          <TabsTrigger value="password">Update Password</TabsTrigger>
-        </TabsList>
-        <TabsContent value="account">Component update account</TabsContent>
-        <TabsContent value="password">Component update password</TabsContent>
-      </Tabs>
+      
     </div>
   );
 };

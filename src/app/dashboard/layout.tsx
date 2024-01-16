@@ -1,18 +1,11 @@
-import { auth, signOut } from "@/auth";
-import CustomContainer from "@/components/CustomContainer";
-import { Button } from "@/components/ui/button";
-import { Home, ListTodo, LogOut, User } from "lucide-react";
+import { auth } from "@/auth";
+import DashboardMenu from "@/components/DashboardMenu";
+import { Home } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const DashboardLayout = async ({
-  children,
-  params,
-}: {
-  children: React.ReactNode;
-  params: { userId: string };
-}) => {
+const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
   const session = await auth();
   return (
     <div className="md:px-10 px-2">
@@ -30,9 +23,9 @@ const DashboardLayout = async ({
           <h1 className="underline font-semibold text-sm">Dashboard</h1>
         </div>
       </div>
-      <main className="flex flex-col md:flex-row py-5 px-1">
-        <div className="md:w-1/3 w-full lg:w-1/4 flex-col flex px-1">
-          <div className="w-full rounded-md border shadow my-2 ">
+      <main className="flex flex-col md:flex-row py-0 px-1">
+        <div className="md:w-1/3 w-full lg:w-[300px] flex-col flex px-1">
+          <div className="w-full rounded-md border shadow my-2 mt-16">
             <div className="aspect-video rounded">
               {session?.user.image !== null ? (
                 <Image
@@ -57,43 +50,11 @@ const DashboardLayout = async ({
               <p className="text-xs">{session?.user.email}</p>
             </div>
           </div>
-          <div className="border my-2 rounded-md shadow flex-col flex">
-            <Link
-              href={`/dashboard/${
-                session?.user.role === "ADMIN" ? "admin" : "user"
-              }`}
-            >
-              <Button variant={"link"}>
-                <Home className="mr-2 h-4 w-4" /> Home
-              </Button>
-            </Link>
-            <Link
-              href={`/dashboard/user/mybooking`}
-            >
-              <Button variant={"link"}>
-                <ListTodo className="mr-2 h-4 w-4" />
-                My Booking
-              </Button>
-            </Link>
-            <Link href={`/dashboard/user/myprofile`}>
-              <Button variant={"link"}>
-                <User className="mr-2 h-4 w-4" /> Profile
-              </Button>
-            </Link>
-            <form
-              action={async () => {
-                "use server";
-                await signOut();
-              }}
-            >
-              <Button className="text-sm w-full" variant={"link"}>
-                <LogOut className="size-4 mr-2" />
-                Log out
-              </Button>
-            </form>
-          </div>
+          <DashboardMenu />
         </div>
-        <div className="w-full  mx-2 my-3">{children}</div>
+        <div className="border w-full my-2 mx-3 rounded-md shadow-sm">
+          <div className="mt-8">{children}</div>
+        </div>
       </main>
     </div>
   );

@@ -1,4 +1,5 @@
 import * as z from "zod";
+import validator from "validator";
 
 export const RegisterSchema = z.object({
   name: z.string().min(1, {
@@ -21,14 +22,13 @@ export const LoginSchema = z.object({
   }),
 });
 
-export const UpdatePasswordSchema = z.object({
-  currentPassword: z.string().min(1, {
-    message: "password is required",
+export const UpdateProfileSchema = z.object({
+  phoneNumber: z.string().refine(validator.isMobilePhone),
+  birthDay: z.string().datetime().refine(validator.isDate),
+  country: z.string().min(3, {
+    message: "Country is required",
   }),
-  newPassword: z.string().min(1, {
-    message: "password is required",
-  }),
-  confirmPassword: z.string().min(1, {
-    message: "password is required",
-  }),
+  nik: z.string().optional(),
+  emergencyContactName: z.string().optional(),
+  emergencyContactNumber: z.string().refine(validator.isMobilePhone),
 });
