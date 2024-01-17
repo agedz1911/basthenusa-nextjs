@@ -1,5 +1,10 @@
 "use client";
 
+import { UpdateProfileSchema } from "@/utils/user-schemas";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import { Button } from "../ui/button";
 import {
   Form,
   FormControl,
@@ -8,13 +13,7 @@ import {
   FormLabel,
   FormMessage,
 } from "../ui/form";
-import { UpdateProfileSchema } from "@/lib/schemas";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Input } from "../ui/input";
-import { Button } from "../ui/button";
 import { Label } from "../ui/label";
 
 const UpdateProfile = () => {

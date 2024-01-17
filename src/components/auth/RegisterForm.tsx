@@ -1,6 +1,6 @@
 "use client";
 
-import { RegisterSchema } from "@/lib/schemas";
+import { RegisterSchema } from "@/utils/user-schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AlertTriangle, UserPlus } from "lucide-react";
 import Image from "next/image";

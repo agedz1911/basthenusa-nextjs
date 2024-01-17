@@ -1,11 +1,13 @@
 import UpdateProfile from "@/components/profile/UpdateProfile";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
 
 const page = () => {
   return (
     <div className="w-full">
       <h1 className="text-3xl font-bold text-center mb-5">Profile</h1>
+      <Separator /> 
       <div className="flex flex-col lg:flex-row px-5">
         <div className="w-full space-y-3 py-4">
           <div className="grid w-full max-w-md items-center gap-1.5">

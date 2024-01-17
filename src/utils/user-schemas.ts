@@ -32,3 +32,5 @@ export const UpdateProfileSchema = z.object({
   emergencyContactName: z.string().optional(),
   emergencyContactNumber: z.string().refine(validator.isMobilePhone),
 });
+
+

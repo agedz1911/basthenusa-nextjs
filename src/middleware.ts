@@ -6,6 +6,7 @@ import {
   apiAuthPrefix,
   authRoutes,
   publicRoutes,
+  adminRoutes,
 } from "./routes";
 
 //export const { auth: middleware } = NextAuth(authConfig);
@@ -19,6 +20,7 @@ export default auth((req) => {
   const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
   const isAuthRoute = authRoutes.includes(nextUrl.pathname);
+  const isAdminRoute = adminRoutes.includes(nextUrl.pathname);
 
   if (isApiAuthRoute) {
     return null;
@@ -31,7 +33,7 @@ export default auth((req) => {
     return null;
   }
 
-  if (!isLoggedIn && !isPublicRoute) {
+  if (!isLoggedIn && !isPublicRoute && !isAdminRoute) {
     let callbackUrl = nextUrl.pathname;
     if (nextUrl.search) {
       callbackUrl += nextUrl.search;
@@ -49,5 +51,5 @@ export default auth((req) => {
 
 // Read more: https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+  matcher: ["/((?!api|_next/static|_next/image|images|favicon.ico).*)"],
 };

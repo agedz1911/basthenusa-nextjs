@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { Button } from "./ui/button";
-import { BedDouble, Home, ListTodo, LogOut, User, UserPlus } from "lucide-react";
+import { BedDouble, Home, ListTodo, LogOut, MapPin, User, UserPlus } from "lucide-react";
 import { auth, signOut } from "@/auth";
 
 const DashboardMenu = async () => {
@@ -16,14 +16,14 @@ const DashboardMenu = async () => {
         </Link>
         <Link href={`/dashboard/admin/reservation`}>
           <Button variant={"link"}>
-            <ListTodo className="mr-2 h-4 w-4" />
+            <BedDouble className="mr-2 h-4 w-4" />
             Reservation
           </Button>
         </Link>
         <Link href={`/dashboard/admin/products`}>
           <Button variant={"link"}>
-            <BedDouble className="mr-2 h-4 w-4" />
-            Products
+            <MapPin  className="mr-2 h-4 w-4" />
+            Destination
           </Button>
         </Link>
         <Link href={`/dashboard/admin/users`}>
