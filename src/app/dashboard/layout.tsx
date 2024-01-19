@@ -9,7 +9,7 @@ const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
   const session = await auth();
   return (
     <div className="md:px-10 px-2">
-      <div className="flex items-center py-3 justify-between sticky bg-background border-b top-0">
+      <div className="flex items-center py-3 justify-between sticky bg-background z-50 border-b top-0">
         <div className="relative h-10 w-10">
           <Link href="/">
             <Image src="/logo.png" alt="logo" fill />

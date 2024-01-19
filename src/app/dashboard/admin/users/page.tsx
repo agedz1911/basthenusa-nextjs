@@ -1,9 +1,24 @@
-import React from 'react'
+import { auth } from "@/auth";
+import AllUsers from "@/components/admin/AllUsers";
+import DashboardHeader from "@/components/admin/DashboardHeader";
+import { redirect } from "next/navigation";
 
-const page = () => {
+const page = async () => {
+  const session = await auth();
+  if (session?.user.role !== "ADMIN") return redirect("/");
   return (
-    <div>page</div>
-  )
-}
+    <>
+      <DashboardHeader
+        btnName="Add New"
+        btnUrl="/dashboard/admin/users/addnew"
+        titlePage="Users"
+      />
 
-export default page
+      <div className="py-2 px-4">
+        <AllUsers />
+      </div>
+    </>
+  );
+};
+
+export default page;

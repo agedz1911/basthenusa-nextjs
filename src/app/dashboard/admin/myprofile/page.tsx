@@ -1,9 +1,17 @@
-import React from 'react'
+import DashboardHeader from "@/components/admin/DashboardHeader";
+import MyProfile from "@/components/profile/MyProfile";
+import React from "react";
 
 const page = () => {
   return (
-    <div>pageProfile</div>
-  )
-}
+    <>
+      <DashboardHeader titlePage="My Profile" btnUrl="#" />
 
-export default page
+      <div className="py-2 px-4">
+        <MyProfile />
+      </div>
+    </>
+  );
+};
+
+export default page;
