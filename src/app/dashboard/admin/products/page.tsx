@@ -9,6 +9,7 @@ const page = async () => {
   return (
     <>
       <DashboardHeader
+        isHidden={false}
         titlePage="Products Destination"
         btnName="Add New"
         btnUrl="/dashboard/admin/products/addnew"

@@ -1,6 +1,6 @@
 "use client";
 
-import { RegisterSchema } from "@/utils/user-schemas";
+import { CreateUserSchema, RegisterSchema } from "@/utils/user-schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -14,17 +14,24 @@ import {
 } from "../ui/form";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
+
 const AddUser = () => {
-  const form = useForm<z.infer<typeof RegisterSchema>>({
-    resolver: zodResolver(RegisterSchema),
+  const form = useForm<z.infer<typeof CreateUserSchema>>({
+    resolver: zodResolver(CreateUserSchema),
     defaultValues: {
       name: "",
       email: "",
       password: "",
+      birthDay: "",
+      phoneNumber: "",
+      country: "",
+      nik: "",
+      emergencyContactName: "",
+      emergencyContactNumber: "",
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof RegisterSchema>) => {
+  const onSubmit = async (values: z.infer<typeof CreateUserSchema>) => {
     console.log(values);
   };
 
@@ -81,6 +88,84 @@ const AddUser = () => {
                       placeholder="******"
                       {...field}
                     />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="birthDay"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Date of Birth </FormLabel>
+                  <FormControl>
+                    <Input type="date" className="w-full max-w-md" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="phoneNumber"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Phone Number </FormLabel>
+                  <FormControl>
+                    <Input type="tel" className="w-full max-w-md" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="country"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Country </FormLabel>
+                  <FormControl>
+                    <Input type="text" className="w-full max-w-md" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="nik"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>NIK </FormLabel>
+                  <FormControl>
+                    <Input type="number" className="w-full max-w-md" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="emergencyContactName"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Emergency Name </FormLabel>
+                  <FormControl>
+                    <Input type="text" className="w-full max-w-md" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="emergencyContactNumber"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Emergency No </FormLabel>
+                  <FormControl>
+                    <Input type="tel" className="w-full max-w-md" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

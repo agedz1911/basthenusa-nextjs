@@ -5,6 +5,7 @@ const page = () => {
   return (
     <>
       <DashboardHeader
+        isHidden={false}
         titlePage="Products Destination"
         btnName="Back"
         btnUrl="/dashboard/admin/products/"
