@@ -11,9 +11,7 @@ const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
     <div className="md:px-10 px-2">
       <div className="flex items-center py-3 justify-between sticky bg-background z-50 border-b top-0">
         <div className="relative h-10 w-10">
-          <Link href="/">
-            <Image src="/logo.png" alt="logo" fill />
-          </Link>
+          <Image src="/logo.png" alt="logo" fill />
         </div>
         <div className="flex items-center gap-2">
           <Link href="/">
@@ -24,23 +22,25 @@ const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
         </div>
       </div>
       <main className="flex flex-col md:flex-row py-0 px-1">
-        <div className="md:w-1/3 w-full lg:w-[300px] flex-col flex px-1">
+        <div className="w-full md:w-[300px] flex-col flex px-1">
           <div className="w-full rounded-md border shadow my-2 mt-16">
             <div className="aspect-video rounded">
               {session?.user.image !== null ? (
-                <Image
-                  width={200}
-                  height={100}
-                  className="object-cover rounded-md h-full w-full"
-                  src={session?.user.image!}
-                  alt={session?.user.name ?? ""}
-                />
+                <div className="relative w-full h-[120px]">
+                  <Image
+                    width={200}
+                    height={50}
+                    className="object-cover rounded-md h-full w-full"
+                    src={session?.user.image!}
+                    alt={session?.user.name ?? ""}
+                  />
+                </div>
               ) : (
                 <Image
                   src={`https://ui-avatars.com/api/?name=${session.user.name}`}
                   alt={session.user.name ?? ""}
                   width={200}
-                  height={100}
+                  height={120}
                   className="object-cover rounded-md h-full w-full"
                 />
               )}
@@ -50,6 +50,7 @@ const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
               <p className="text-xs">{session?.user.email}</p>
             </div>
           </div>
+
           <DashboardMenu />
         </div>
         <div className="border w-full my-2 mx-3 rounded-md shadow-sm">

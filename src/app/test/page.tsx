@@ -2,14 +2,21 @@
 
 import { SingleImageDropzone } from "@/components/SingleImageDropzone";
 import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { useEdgeStore } from "@/lib/edgestore";
-import React, { useState } from "react";
+import { cn } from "@/lib/utils";
+import { format } from "date-fns";
+import { CalendarIcon } from "lucide-react";
+import { useState } from "react";
 
 const UploadImage = () => {
   const [file, setFile] = useState<File>();
   const [progress, setProgress] = useState(0);
 
   const { edgestore } = useEdgeStore();
+
+  const [date, setDate] = useState<Date>()
 
   return (
     <div className="flex flex-col gap-4 py-5">
@@ -55,6 +62,29 @@ const UploadImage = () => {
       >
         Upload
       </Button>
+
+      <Popover>
+      <PopoverTrigger asChild>
+        <Button
+          variant={"outline"}
+          className={cn(
+            "w-[280px] justify-start text-left font-normal",
+            !date && "text-muted-foreground"
+          )}
+        >
+          <CalendarIcon className="mr-2 h-4 w-4" />
+          {date ? format(date, 'PPP') : <span>Pick a date</span>}
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-auto p-0">
+        <Calendar
+          mode="single"
+          selected={date}
+          onSelect={setDate}
+          initialFocus
+        />
+      </PopoverContent>
+    </Popover>
     </div>
   );
 };

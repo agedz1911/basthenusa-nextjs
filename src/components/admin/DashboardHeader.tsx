@@ -7,6 +7,7 @@ interface dashboardProps {
   btnName?: string;
   btnUrl: string;
   isHidden: boolean;
+  icon?: any;
 }
 
 const DashboardHeader = ({
@@ -14,6 +15,7 @@ const DashboardHeader = ({
   btnUrl,
   btnName,
   isHidden,
+  icon
 }: dashboardProps) => {
   return (
     <div className="mx-auto flex flex-col w-full">
@@ -25,7 +27,7 @@ const DashboardHeader = ({
               size={"sm"}
               className="w-[100px] md:absolute md:top-0 md:left-1 ml-2"
             >
-              {btnName}
+              {icon}{btnName}
             </Button>
           </Link>
         )}

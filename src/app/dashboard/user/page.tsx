@@ -8,7 +8,6 @@ const page = async () => {
     <div>
       <p>{session?.user.role}</p>
       <p>{session?.user.name}</p>
-      
     </div>
   );
 };

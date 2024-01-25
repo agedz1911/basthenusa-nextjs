@@ -1,5 +1,5 @@
 import { auth } from "@/auth";
-import AllDestination from "@/components/admin/AllDestination";
+import AllDestination from "@/components/admin/destinations/AllDestination";
 import DashboardHeader from "@/components/admin/DashboardHeader";
 import { redirect } from "next/navigation";
 

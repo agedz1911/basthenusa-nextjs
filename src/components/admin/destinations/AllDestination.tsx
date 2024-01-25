@@ -6,7 +6,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "../ui/table";
+} from "../../ui/table";
 import { Edit, Eye, Trash } from "lucide-react";
 import Image from "next/image";
 

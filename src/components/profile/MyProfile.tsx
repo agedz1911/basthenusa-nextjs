@@ -9,12 +9,8 @@ import { Button } from "../ui/button";
 const getData = async (email: string) => {
   const data = await db.user.findUnique({
     where: { email },
-    select: {
-      id: true,
-      email: true,
-      image: true,
-      password: true,
-      name: true,
+    include: {
+      biodata: true,
     },
   });
   return data;
@@ -23,6 +19,8 @@ const getData = async (email: string) => {
 const MyProfile = async () => {
   const session = await auth();
   const data = await getData(session?.user.email as string);
+  console.log(data);
+  
   return (
     <>
       <div className="w-full max-w-lg rounded-md shadow border mx-auto py-5">
@@ -45,21 +43,6 @@ const MyProfile = async () => {
             <p className="text-xs text-muted-foreground">{data?.email}</p>
           </div>
         </div>
-      </div>
-      <div className="py-8 gap-4 flex flex-col items-center">
-        <div className="grid w-full max-w-sm items-center gap-1.5">
-          <Label htmlFor="email">Email</Label>
-          <Input disabled type="email" id="email" placeholder="Email" />
-        </div>
-        <div className="grid w-full max-w-sm items-center gap-1.5">
-          <Label htmlFor="name">Name</Label>
-          <Input type="text" id="name" placeholder="Name" />
-        </div>
-        <div className="grid w-full max-w-sm items-center gap-1.5">
-          <Label htmlFor="password">Password</Label>
-          <Input type="password" id="password" placeholder="*****" />
-        </div>
-        <Button className="w-full max-w-sm">Update</Button>
       </div>
     </>
   );

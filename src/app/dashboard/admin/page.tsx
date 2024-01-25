@@ -8,7 +8,7 @@ const page = async () => {
   return (
     <div>
       Admin
-      {JSON.stringify(session)}
+      {/* {JSON.stringify(session)} */}
     </div>
   );
 };

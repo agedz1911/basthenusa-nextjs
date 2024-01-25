@@ -1,4 +1,4 @@
-import AddDestinationProduct from "@/components/admin/AddDestinationProduct";
+import AddDestinationProduct from "@/components/admin/destinations/AddDestinationProduct";
 import DashboardHeader from "@/components/admin/DashboardHeader";
 
 const page = () => {
