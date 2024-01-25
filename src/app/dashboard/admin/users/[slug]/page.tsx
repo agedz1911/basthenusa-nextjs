@@ -39,14 +39,14 @@ const page = async ({ params }: EditUserProps) => {
         <EditUser
           id={data?.id}
           name={data?.name}
-          // email={data?.email}
+          email={data?.email}
           // image={data?.image}
           // password={data?.password}
           // role={data?.role}
           // birthDay={biodata?.birthDay}
-          // country={biodata?.country}
+          country={biodata?.country}
           // phoneNumber={biodata?.phoneNumber}
-          // nik={biodata?.nik}
+          nik={biodata?.nik}
           // emergencyContactName={biodata?.emergencyContactName}
           // emergencyContactNumber={biodata?.emergencyContactNumber}
         />

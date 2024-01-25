@@ -21,12 +21,12 @@ const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
           <h1 className="underline font-semibold text-sm">Dashboard</h1>
         </div>
       </div>
-      <main className="flex flex-col md:flex-row py-0 px-1">
+      <main className="flex flex-col md:flex-row pt-0 pb-14 px-1">
         <div className="w-full md:w-[300px] flex-col flex px-1">
           <div className="w-full rounded-md border shadow my-2 mt-16">
             <div className="aspect-video rounded">
               {session?.user.image !== null ? (
-                <div className="relative w-full h-[120px]">
+                <div className="relative w-full h-[190px] md:h-[130px]">
                   <Image
                     width={200}
                     height={50}
@@ -45,7 +45,7 @@ const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
                 />
               )}
             </div>
-            <div className="px-2 py-4 ">
+            <div className="px-2 py-4">
               <h1 className="text-sm font-semibold">{session?.user.name}</h1>
               <p className="text-xs">{session?.user.email}</p>
             </div>
@@ -53,7 +53,7 @@ const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
 
           <DashboardMenu />
         </div>
-        <div className="border w-full my-2 mx-3 rounded-md shadow-sm">
+        <div className="border w-full my-2 mx-0 md:mx-3 rounded-md shadow-sm">
           <div className="mt-8">{children}</div>
         </div>
       </main>

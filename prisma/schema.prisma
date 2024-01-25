@@ -23,16 +23,18 @@ model User {
   image         String?
   password      String?
   role          String?   @default("USER")
+  createdAt     DateTime  @default(now())
+  updateAt      DateTime  @updatedAt
   accounts      Account[]
   biodata       Biodata[]
 }
 
 model Biodata {
-  id                     String   @id @unique @default(cuid())
-  userId                 User?    @relation(fields: [id], references: [id], onDelete: Cascade)
-  birthDay               DateTime
-  phoneNumber            String
-  country                String
+  id                     String    @id @unique @default(cuid())
+  userId                 User?     @relation(fields: [id], references: [id], onDelete: Cascade)
+  birthDay               DateTime?
+  phoneNumber            String?
+  country                String?
   nik                    String?
   emergencyContactName   String?
   emergencyContactNumber String?

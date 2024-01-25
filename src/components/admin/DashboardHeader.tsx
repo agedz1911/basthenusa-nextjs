@@ -15,7 +15,7 @@ const DashboardHeader = ({
   btnUrl,
   btnName,
   isHidden,
-  icon
+  icon,
 }: dashboardProps) => {
   return (
     <div className="mx-auto flex flex-col w-full">
@@ -25,9 +25,10 @@ const DashboardHeader = ({
           <Link href={btnUrl}>
             <Button
               size={"sm"}
-              className="w-[100px] md:absolute md:top-0 md:left-1 ml-2"
+              className="w-[100px] absolute top-0 left-0 md:top-0 md:left-1 ml-2"
             >
-              {icon}{btnName}
+              {icon}
+              {btnName}
             </Button>
           </Link>
         )}

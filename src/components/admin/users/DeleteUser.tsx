@@ -46,8 +46,8 @@ const DeleteUser = ({ email, imgUrl, name }: btnDelete) => {
           </div>
         </DialogHeader>
         <div className="flex justify-evenly p-3">
-          <DialogClose asChild>
-            <Button type="button" className="w-1/3" variant="default">
+          <DialogClose asChild className="border-0">
+            <Button  className="w-1/3" variant="default">
               Cancel
             </Button>
           </DialogClose>
