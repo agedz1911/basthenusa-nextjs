@@ -44,9 +44,22 @@ export const CreateUserSchema = z.object({
   country: z.string().min(3, {
     message: "Country is required",
   }),
-  nik: z.string().optional(),
-  emergencyContactName: z.string().optional(),
-  emergencyContactNumber: z.string().optional(),
+  nik: z.string().min(1),
+  emergencyContactName: z.string().min(1),
+  emergencyContactNumber: z.string().min(1),
 });
 
-
+export const UpdateUserSchema = z
+  .object({
+    name: z.string(),
+    bioId: z.string(),
+    email: z.string().email(),
+    country: z.string(),
+    role: z.string(),
+    phoneNumber: z.string(),
+    nik: z.string(),
+    emergencyContactName: z.string(),
+    emergencyContactNumber: z.string(),
+    birthDay: z.date().nullable(),
+  })
+  .partial();

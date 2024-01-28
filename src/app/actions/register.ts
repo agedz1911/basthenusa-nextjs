@@ -67,12 +67,12 @@ export const NewUser = async (values: z.infer<typeof CreateUserSchema>) => {
       password: hashPassword,
       biodata: {
         create: {
-          birthDay: birthDay || null,
+          birthDay,
           country,
           phoneNumber,
-          emergencyContactName: emergencyContactName || null,
-          emergencyContactNumber : emergencyContactNumber || null,
-          nik : nik || null,
+          emergencyContactName,
+          emergencyContactNumber,
+          nik,
         },
       },
     },

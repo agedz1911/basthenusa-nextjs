@@ -53,7 +53,6 @@ const AddUser = () => {
       name: "",
       email: "",
       password: "123456",
-      birthDay: new Date(),
       phoneNumber: "",
       country: "",
       nik: "",
@@ -147,7 +146,7 @@ const AddUser = () => {
                         mode="single"
                         onSelect={field.onChange}
                         disabled={(date) =>
-                          date > new Date() || date < new Date("1900-01-01")
+                          date > new Date() || date < new Date("1940-01-01")
                         }
                         initialFocus
                       />
